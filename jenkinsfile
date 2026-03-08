@@ -12,9 +12,8 @@ pipeline {
     stages {
         stage('CEHCKOUT_REPOA') {
             steps {
-                checkout checkout scmGit(branches: [[name: '*/main']], 
-                extensions: [], 
-                userRemoteConfigs: [[credentialsId: 'hp-git', 
+                checkout scmGit(branches: [[name: '*/main']], 
+                extensions: [], userRemoteConfigs: [[credentialsId: 'nayazahamad', 
                 url: 'https://github.com/nayazahamad93/dec-jenkins-pipeline-repo.git']])
                
                 sh '''
