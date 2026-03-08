@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('STAGE1_a') {
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     echo "This is stage1 running"
                     sh ''' 
                         sleep 5
@@ -25,7 +25,7 @@ pipeline {
                     } 
                     catch (err) {
                         echo "Error caught: ${err}"
-                        currentBuild.result = 'SUCCESS'
+                        currentBuild.result = 'FAILURE'
                     }
                 }
             }
